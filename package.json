@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "packageManager": "pnpm@11.24.0",
   "engines": {
     "node": ">=22"
   },
