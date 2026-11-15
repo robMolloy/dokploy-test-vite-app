@@ -3,5 +3,10 @@ import { useState } from "react";
 export default function UserPage() {
   const [count, setCount] = useState(0);
 
-  return <h1 onClick={() => setCount((x) => x + 1)}>Count: {count}</h1>;
+  return (
+    <div>
+      <h1 onClick={() => setCount((x) => x + 1)}>Count: {count}</h1>
+      <span>hiiii</span>
+    </div>
+  );
 }
