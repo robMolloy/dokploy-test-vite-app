@@ -6,7 +6,7 @@ export default function UserPage() {
   return (
     <div>
       <h1 onClick={() => setCount((x) => x + 1)}>Count: {count}</h1>
-      <span>hiiii</span>
+      <span>railpack</span>
     </div>
   );
 }
