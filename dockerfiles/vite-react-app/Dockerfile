@@ -13,7 +13,6 @@ COPY . .
 
 # Vite configuration (supplied by Dokploy as a build argument)
 ARG VITE_BASE_PATH
-RUN echo "VITE_BASE_PATH=[$VITE_BASE_PATH]" 
 ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 
 RUN pnpm run build
