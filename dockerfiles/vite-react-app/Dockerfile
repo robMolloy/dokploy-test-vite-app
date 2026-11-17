@@ -1,5 +1,6 @@
 # ---- Build stage ----
 FROM node:22-alpine AS build
+
 WORKDIR /app
 
 RUN corepack enable
@@ -9,14 +10,14 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-# Vite inlines VITE_* vars at build time
 ARG VITE_BASE_PATH=/
-ENV VITE_BASE_PATH=$VITE_BASE_PATH
+ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 
 RUN pnpm run build
 
 # ---- Serve stage ----
 FROM node:22-alpine
+
 WORKDIR /app
 
 RUN npm install -g serve
@@ -24,6 +25,7 @@ RUN npm install -g serve
 COPY --from=build /app/dist ./dist
 
 USER node
+
 EXPOSE 3000
 
 CMD ["serve", "-s", "dist", "-l", "3000"]
