@@ -1,3 +1,4 @@
+
 # ---- Build stage ----
 FROM node:22-alpine AS build
 
@@ -10,10 +11,12 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-ARG VITE_BASE_PATH2=/
-ENV VITE_BASE_PATH2=${VITE_BASE_PATH2}
+# Vite configuration (supplied by Dokploy as a build argument)
+ARG VITE_BASE_PATH=/
+ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 
-RUN pnpm run build
+RUN echo "Building with VITE_BASE_PATH=${VITE_BASE_PATH}" \
+    && pnpm run build
 
 # ---- Serve stage ----
 FROM node:22-alpine
