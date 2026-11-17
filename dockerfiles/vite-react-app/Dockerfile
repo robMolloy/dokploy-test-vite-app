@@ -10,8 +10,8 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-ARG VITE_BASE_PATH=/
-ENV VITE_BASE_PATH=${VITE_BASE_PATH}
+ARG VITE_BASE_PATH2=/
+ENV VITE_BASE_PATH2=${VITE_BASE_PATH2}
 
 RUN pnpm run build
 
