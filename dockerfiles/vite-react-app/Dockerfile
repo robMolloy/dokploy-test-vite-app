@@ -16,8 +16,7 @@ ARG VITE_BASE_PATH
 RUN echo "VITE_BASE_PATH=[$VITE_BASE_PATH]" 
 ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 
-RUN echo "Building with VITE_BASE_PATH=${VITE_BASE_PATH}" \
-    && pnpm run build
+RUN pnpm run build
 
 # ---- Serve stage ----
 FROM node:22-alpine
