@@ -6,7 +6,7 @@ export default function UserPage() {
   return (
     <div>
       <h1 onClick={() => setCount((x) => x + 1)}>Count: {count}</h1>
-      <span>railpack</span>
+      <span>deployment by: {import.meta.env.VITE_DEPLOYMENT_BY}</span>
     </div>
   );
 }
